@@ -1,9 +1,10 @@
 import React from 'react';
+import './SearchBar.css';
 
 const createSearchBar = () => (
   <div className="SearchBar">
     <div className="SearchBar-fields">
-      <input placeholder="Search Images" />
+      <input className="Search" placeholder="Search Images" />
     </div>
   </div>
 );
