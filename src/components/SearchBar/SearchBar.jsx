@@ -2,11 +2,7 @@ import React from 'react';
 import './SearchBar.css';
 
 const createSearchBar = () => (
-  <div className="SearchBar">
-    <div className="SearchBar-fields">
-      <input className="Search" placeholder="Search Images" />
-    </div>
-  </div>
+  <input className="Search" placeholder="Search Images" />
 );
 
 class Searchbar extends React.Component {
