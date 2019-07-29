@@ -1,14 +1,8 @@
 import React from 'react';
 import './SearchBar.css';
 
-const createSearchBar = () => (
+const SearchBar = () => (
   <input className="Search" placeholder="Search Images" />
 );
 
-class Searchbar extends React.Component {
-  render() {
-    return createSearchBar();
-  }
-}
-
-export default Searchbar;
+export default SearchBar();

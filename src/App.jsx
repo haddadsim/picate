@@ -13,7 +13,7 @@ function App() {
           Next Gen Photo Generator
         </p>
         <div className="Search-Bar">
-          <SearchBar />
+          {SearchBar}
         </div>
       </header>
     </div>
