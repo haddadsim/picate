@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+import SearchBar from './components/SearchBar/SearchBar';
 
 const logo = `${process.env.PUBLIC_URL}/logo.png`;
 
@@ -11,8 +12,12 @@ function App() {
         <p>
           Next Gen Photo Generator
         </p>
+        <div className="Search-Bar">
+          <SearchBar />
+        </div>
       </header>
     </div>
+
   );
 }
 

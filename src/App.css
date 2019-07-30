@@ -5,13 +5,15 @@
 .App-logo {
   
   background-position: top center;
-  height: 20vmin;
+  height: 10vmin;
   pointer-events: none;
   margin-top: 30px;
+  border-radius: 25px;
+    
 }
 
 .App-header {
-  background-color: #000000;
+  background-color: #243665;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
