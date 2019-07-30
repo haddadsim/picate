@@ -3,7 +3,7 @@
 import React from 'react';
 
 const ImageList = ({ image }) => {
-  const imgs = image && image.map(img => (
+  const imgs = image.map(img => (
     <img
       key={img.id}
       src={img.urls.regular}
