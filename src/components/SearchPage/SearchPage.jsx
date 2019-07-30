@@ -39,9 +39,7 @@ const SearchPage = () => {
         onInputChange={onInputChange}
         searchText={searchText}
       />
-
       <ImageList image={image} />
-
     </div>
 
   );
