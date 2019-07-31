@@ -19,9 +19,7 @@ const SearchPage = () => {
       headers: {
         Authorization: API_KEY,
       },
-
     })
-
       .then((data) => {
         setImage(data.data.results);
       });
