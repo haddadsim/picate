@@ -1,0 +1,7 @@
+.image-container {
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+    width: 50%;
+    margin: 0 auto;
+}
+
