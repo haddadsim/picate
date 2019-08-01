@@ -35,17 +35,18 @@ const SearchPage = () => {
   };
 
   return (
-    <div>
+    <React.Fragment>
       <SearchBar
         className="search-bar"
         onSubmitHandler={onSubmitHandler}
         onInputChange={onInputChange}
         searchText={searchText}
       />
+
       <div className="image-container">
         {image && <ImageList image={image} isLoaded={isLoaded} />}
       </div>
-    </div>
+    </React.Fragment>
 
   );
 };
