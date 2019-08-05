@@ -25,7 +25,7 @@ const ImageList = ({ image, isLoaded }) => {
     setImageIndex(e.target.id);
     e.preventDefault();
   };
-  console.log(imageIndex);
+
   const imgs = image.map((img, index) => (
     <img
       id={index}
