@@ -9,7 +9,7 @@ import Lightbox from 'react-image-lightbox';
 import 'react-image-lightbox/style.css';
 
 const ImageList = ({ image, isLoaded }) => {
-  const [imageIndex, setImageIndex] = useState(0);
+  const [imageIndex, setImageIndex] = useState();
   const [isOpen, setIsOpen] = useState('false');
 
   if (isLoaded) {
@@ -22,8 +22,7 @@ const ImageList = ({ image, isLoaded }) => {
 
   const onClickHandler = (e) => {
     setIsOpen(true);
-    setImageIndex(e.target.id);
-    e.preventDefault();
+    setImageIndex(parseInt((e.target.id), 10));
   };
 
   const imgs = image.map((img, index) => (
@@ -49,8 +48,7 @@ const ImageList = ({ image, isLoaded }) => {
         onMoveNextRequest={() => setImageIndex((imageIndex + 1) % image.length)}
         onMovePrevRequest={() => setImageIndex((imageIndex + image.length - 1) % image.length)}
         nextSrc={image[(imageIndex + 1) % image.length].urls.regular}
-        prevSrc={image[(imageIndex + image.length - 1) % image.length]}
-
+        prevSrc={image[(imageIndex + image.length - 1) % image.length].urls.regular}
       />
     );
   }
@@ -59,7 +57,6 @@ const ImageList = ({ image, isLoaded }) => {
     <React.Fragment>
       {imgs}
     </React.Fragment>
-
   );
 };
 
