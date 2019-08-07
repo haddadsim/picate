@@ -50,6 +50,8 @@ const ImageList = ({ image, isLoaded }) => {
         nextSrc={image[(imageIndex + 1) % image.length].urls.regular}
         prevSrc={image[(imageIndex + image.length - 1) % image.length].urls.regular}
         imageTitle={image[imageIndex].alt_description}
+        imageCaption={`By ${image[imageIndex].user.name}`}
+
       />
     );
   }
