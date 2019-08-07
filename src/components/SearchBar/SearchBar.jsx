@@ -5,7 +5,7 @@ import Button from '@material-ui/core/Button';
 import Input from '@material-ui/core/Input';
 
 const SearchBar = ({ onSubmitHandler, searchText, onInputChange }) => (
-  <form onSubmit={onSubmitHandler}>
+  <form onSubmit={onSubmitHandler} className="search-form">
     <Input
       type="search"
       className="Search"
