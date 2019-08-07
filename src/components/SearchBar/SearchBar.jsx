@@ -7,7 +7,7 @@ import Input from '@material-ui/core/Input';
 const SearchBar = ({ onSubmitHandler, searchText, onInputChange }) => (
   <form onSubmit={onSubmitHandler} className="search-form">
     <Input
-      type="search"
+      type="text"
       className="Search"
       placeholder="Search Images"
       value={searchText}
