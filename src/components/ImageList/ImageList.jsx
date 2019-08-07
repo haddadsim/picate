@@ -49,6 +49,7 @@ const ImageList = ({ image, isLoaded }) => {
         onMovePrevRequest={() => setImageIndex((imageIndex + image.length - 1) % image.length)}
         nextSrc={image[(imageIndex + 1) % image.length].urls.regular}
         prevSrc={image[(imageIndex + image.length - 1) % image.length].urls.regular}
+        imageTitle={image[imageIndex].alt_description}
       />
     );
   }
