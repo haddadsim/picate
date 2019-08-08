@@ -2,8 +2,12 @@
     border-radius: 25px;
     border: white;
     padding: 20px;
-    width: 600px;
+    
     height: 15px;
     text-align: center;
     outline: none;
+    width: 50%;
+}
+.search-form{
+    text-align:center;
 }
