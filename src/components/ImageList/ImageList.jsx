@@ -7,8 +7,11 @@ import ReactLoading from 'react-loading';
 import './ImageList.css';
 import Lightbox from 'react-image-lightbox';
 import 'react-image-lightbox/style.css';
+import Button from '@material-ui/core/Button';
 
-const ImageList = ({ image, isLoaded }) => {
+const ImageList = ({
+  image, isLoaded, isHidden, onClickHandling,
+}) => {
   const [imageIndex, setImageIndex] = useState();
   const [isOpen, setIsOpen] = useState('false');
 
@@ -59,7 +62,20 @@ const ImageList = ({ image, isLoaded }) => {
   return (
     <React.Fragment>
       {imgs}
+      <div className="show-button">
+        {!isHidden && (
+        <Button
+          onClick={onClickHandling}
+          variant="contained"
+          component="span"
+
+        >
+          Show More
+        </Button>
+        ) }
+      </div>
     </React.Fragment>
+
   );
 };
 

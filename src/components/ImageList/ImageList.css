@@ -9,5 +9,7 @@
     width: 100px;
     height: 100px;
 }
- 
-    
+ .show-button{
+    align-self: flex-end;
+    position: absolute;
+ }

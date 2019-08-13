@@ -6,10 +6,11 @@ import fetchImages from '../../utils/index';
 
 const SearchPage = () => {
   const [searchText, setSearchTerm] = useState('');
-  const [image, setImage] = useState(null);
+  const [image, setImage] = useState();
   const [isLoaded, setIsLoaded] = useState(false);
   const [isNext, setIsNext] = useState(false);
   const [nextPageIndex, setNextPageIndex] = useState(1);
+  const [isHidden, setIsHidden] = useState(true);
 
   const onInputChange = (e) => {
     setSearchTerm(e.target.value);
@@ -24,13 +25,15 @@ const SearchPage = () => {
   };
 
   const onSubmitHandler = (e) => {
+    setImage([]);
     e.preventDefault();
     setNextPageIndex(1);
     getImages();
     setIsLoaded(true);
+    setIsHidden(false);
   };
 
-  const onClickHandler = () => {
+  const onClickHandling = () => {
     setIsNext(true);
     setNextPageIndex(parseInt(nextPageIndex + 1, 10));
   };
@@ -44,6 +47,7 @@ const SearchPage = () => {
       });
     setIsNext(false);
   }
+
   return (
     <React.Fragment>
       <SearchBar
@@ -54,15 +58,19 @@ const SearchPage = () => {
       />
 
       <div className="image-container">
-        {image && <ImageList image={image} isLoaded={isLoaded} />}
+        {image && (
+        <ImageList
+          image={image}
+          isLoaded={isLoaded}
+          isHidden={isHidden}
+          onClickHandling={onClickHandling}
+        />
+        )}
       </div>
-      <button
-        type="submit"
-        onClick={onClickHandler}
-        value="next"
-      />
+
     </React.Fragment>
 
   );
 };
+
 export default SearchPage;

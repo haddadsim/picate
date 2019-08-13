@@ -7,7 +7,7 @@ const fetchImages = (number, searchText) => {
     params: {
       query: searchText,
       page: number,
-      per_page: 25,
+      per_page: 24,
       orientation: 'squarish',
     },
     headers: {
