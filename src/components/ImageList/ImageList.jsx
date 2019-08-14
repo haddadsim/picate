@@ -14,6 +14,7 @@ const ImageList = ({
 }) => {
   const [imageIndex, setImageIndex] = useState();
   const [isOpen, setIsOpen] = useState('false');
+  const [scrollPosition, setScrollPosition] = useState(0);
 
   if (isLoaded) {
     return (
@@ -26,6 +27,12 @@ const ImageList = ({
   const onClickHandler = (e) => {
     setIsOpen(true);
     setImageIndex(parseInt((e.target.id), 10));
+    setScrollPosition(window.pageYOffset);
+  };
+
+  const onCloseRequest = () => {
+    setIsOpen(false);
+    window.scrollTo(0, scrollPosition);
   };
 
   const imgs = image.map((img, index) => (
@@ -46,7 +53,7 @@ const ImageList = ({
   if (isOpen === true) {
     return (
       <Lightbox
-        onCloseRequest={() => setIsOpen(false)}
+        onCloseRequest={onCloseRequest}
         mainSrc={image[imageIndex].urls.regular}
         onMoveNextRequest={() => setImageIndex((imageIndex + 1) % image.length)}
         onMovePrevRequest={() => setImageIndex((imageIndex + image.length - 1) % image.length)}
