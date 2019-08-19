@@ -7,10 +7,14 @@ import ReactLoading from 'react-loading';
 import './ImageList.css';
 import Lightbox from 'react-image-lightbox';
 import 'react-image-lightbox/style.css';
+import Button from '@material-ui/core/Button';
 
-const ImageList = ({ image, isLoaded }) => {
+const ImageList = ({
+  image, isLoaded, isHidden, onClickHandling,
+}) => {
   const [imageIndex, setImageIndex] = useState();
   const [isOpen, setIsOpen] = useState('false');
+  const [scrollPosition, setScrollPosition] = useState(0);
 
   if (isLoaded) {
     return (
@@ -23,6 +27,12 @@ const ImageList = ({ image, isLoaded }) => {
   const onClickHandler = (e) => {
     setIsOpen(true);
     setImageIndex(parseInt((e.target.id), 10));
+    setScrollPosition(window.pageYOffset);
+  };
+
+  const onCloseRequest = () => {
+    setIsOpen(false);
+    window.scrollTo(0, scrollPosition);
   };
 
   const imgs = image.map((img, index) => (
@@ -43,7 +53,7 @@ const ImageList = ({ image, isLoaded }) => {
   if (isOpen === true) {
     return (
       <Lightbox
-        onCloseRequest={() => setIsOpen(false)}
+        onCloseRequest={onCloseRequest}
         mainSrc={image[imageIndex].urls.regular}
         onMoveNextRequest={() => setImageIndex((imageIndex + 1) % image.length)}
         onMovePrevRequest={() => setImageIndex((imageIndex + image.length - 1) % image.length)}
@@ -59,7 +69,20 @@ const ImageList = ({ image, isLoaded }) => {
   return (
     <React.Fragment>
       {imgs}
+      <div className="show-button">
+        {!isHidden && (
+        <Button
+          onClick={onClickHandling}
+          variant="contained"
+          component="span"
+
+        >
+          Show More
+        </Button>
+        ) }
+      </div>
     </React.Fragment>
+
   );
 };
 
