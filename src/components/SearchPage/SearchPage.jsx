@@ -19,7 +19,13 @@ const SearchPage = () => {
   const getImages = () => {
     fetchImages(nextPageIndex, searchText)
       .then((data) => {
-        setImage(data.data.results);
+        const result = data.data.results;
+        if (result.length > 23) {
+          setIsHidden(false);
+        } else {
+          setIsHidden(true);
+        }
+        setImage(result);
         setIsLoaded(false);
       });
   };
@@ -30,7 +36,6 @@ const SearchPage = () => {
     setNextPageIndex(1);
     getImages();
     setIsLoaded(true);
-    setIsHidden(false);
   };
 
   const onClickHandling = () => {
@@ -44,6 +49,9 @@ const SearchPage = () => {
         const result = data.data.results;
         setImage(image.concat(result));
         setIsLoaded(false);
+        if (result.length < 24) {
+          setIsHidden(true);
+        }
       });
     setIsNext(false);
   }
@@ -64,6 +72,7 @@ const SearchPage = () => {
           isLoaded={isLoaded}
           isHidden={isHidden}
           onClickHandling={onClickHandling}
+          isNext={isNext}
         />
         )}
       </div>
