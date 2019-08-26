@@ -11,6 +11,7 @@ import Button from '@material-ui/core/Button';
 
 const ImageList = ({
   image, isLoaded, isHidden, onClickHandling,
+
 }) => {
   const [imageIndex, setImageIndex] = useState();
   const [isOpen, setIsOpen] = useState('false');
