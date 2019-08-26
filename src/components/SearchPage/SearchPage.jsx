@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward';
 import SearchBar from '../SearchBar/SearchBar';
 import ImageList from '../ImageList/ImageList';
 import './SearchPage.css';
@@ -43,6 +44,10 @@ const SearchPage = () => {
     setNextPageIndex(parseInt(nextPageIndex + 1, 10));
   };
 
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   if (isNext === true) {
     fetchImages(nextPageIndex, searchText)
       .then((data) => {
@@ -75,7 +80,10 @@ const SearchPage = () => {
           isNext={isNext}
         />
         )}
+
       </div>
+
+      <ArrowUpwardIcon onClick={scrollToTop} />
 
     </React.Fragment>
 
