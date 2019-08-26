@@ -15,8 +15,8 @@
     cursor: pointer;
 }
 .MuiSvgIcon-root {
-    right: 50px;
-    bottom: 10px;
+    right: 5%;
+    bottom: 2%;
     fill: currentColor;
     width: 1em;
     display: inline-block;
