@@ -12,6 +12,7 @@ const SearchPage = () => {
   const [isNext, setIsNext] = useState(false);
   const [nextPageIndex, setNextPageIndex] = useState(1);
   const [isHidden, setIsHidden] = useState(true);
+  const [scrollToTop, setScrollToTop] = useState(false);
 
   const onInputChange = (e) => {
     setSearchTerm(e.target.value);
@@ -37,14 +38,16 @@ const SearchPage = () => {
     setNextPageIndex(1);
     getImages();
     setIsLoaded(true);
+    setScrollToTop(false);
   };
 
   const onClickHandling = () => {
     setIsNext(true);
     setNextPageIndex(parseInt(nextPageIndex + 1, 10));
+    setScrollToTop(true);
   };
 
-  const scrollToTop = () => {
+  const scrollAction = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
@@ -81,9 +84,14 @@ const SearchPage = () => {
         />
         )}
 
+        {scrollToTop && (
+        <ArrowUpwardIcon
+          onClick={scrollAction}
+          fontSize="large"
+        />
+        )
+        }
       </div>
-
-      <ArrowUpwardIcon onClick={scrollToTop} />
 
     </React.Fragment>
 

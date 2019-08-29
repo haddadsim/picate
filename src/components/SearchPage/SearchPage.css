@@ -15,28 +15,39 @@
     cursor: pointer;
 }
 .MuiSvgIcon-root {
-    right: 5%;
-    bottom: 2%;
-    fill: currentColor;
-    width: 1em;
-    display: inline-block;
-    font-size: 1.5rem;
-    transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-    flex-shrink: 0;
-    user-select: none;
+    bottom: 10px;
     position: fixed;
     background-color: gainsboro;
     border-radius: 50%;
+    display: inline-flexbox;
+    right: 10px;
 }
 
 @media only screen and (min-width:320px) {
     .image-container img {
         width: 40%;
     }
+    .MuiSvgIcon-root {
+        width: 2em;
+        height: 2em;
+        right: 3px;
+       
+       
+
+    }
+    
 }
 
 @media only screen and (min-width:1025px) {
     .image-container img {
         width: 20%;
+        right: 3%;
+        bottom: 2%;
+    }
+    .MuiSvgIcon-root {
+        width: 2em;
+        height: 2em;
+        right: 3px;
+       
     }
 }
