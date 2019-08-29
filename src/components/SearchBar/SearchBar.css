@@ -11,3 +11,12 @@
 .search-form{
     text-align:center;
 }
+
+.MuiInput-root {
+    position: relative;
+    margin-right: 15px;
+}
+
+.icon {
+    font-style: normal;
+}

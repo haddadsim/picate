@@ -27,3 +27,9 @@
   color: #61dafb;
 }
 
+p {
+  font-style: italic;
+  margin: 5px 6px 20px 6px;
+  font-size: 15px;
+
+}

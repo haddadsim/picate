@@ -13,20 +13,41 @@
     width: 15%;
     margin-right: 10px;
     cursor: pointer;
-    
-
 }
-
-
+.MuiSvgIcon-root {
+    bottom: 10px;
+    position: fixed;
+    background-color: gainsboro;
+    border-radius: 50%;
+    display: inline-flexbox;
+    right: 10px;
+}
 
 @media only screen and (min-width:320px) {
     .image-container img {
         width: 40%;
     }
+    .MuiSvgIcon-root {
+        width: 2em;
+        height: 2em;
+        right: 3px;
+       
+       
+
+    }
+    
 }
 
 @media only screen and (min-width:1025px) {
     .image-container img {
         width: 20%;
+        right: 3%;
+        bottom: 2%;
+    }
+    .MuiSvgIcon-root {
+        width: 2em;
+        height: 2em;
+        right: 3px;
+       
     }
 }

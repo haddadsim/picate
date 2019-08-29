@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward';
 import SearchBar from '../SearchBar/SearchBar';
 import ImageList from '../ImageList/ImageList';
 import './SearchPage.css';
@@ -11,6 +12,7 @@ const SearchPage = () => {
   const [isNext, setIsNext] = useState(false);
   const [nextPageIndex, setNextPageIndex] = useState(1);
   const [isHidden, setIsHidden] = useState(true);
+  const [scrollToTop, setScrollToTop] = useState(false);
 
   const onInputChange = (e) => {
     setSearchTerm(e.target.value);
@@ -36,11 +38,17 @@ const SearchPage = () => {
     setNextPageIndex(1);
     getImages();
     setIsLoaded(true);
+    setScrollToTop(false);
   };
 
   const onClickHandling = () => {
     setIsNext(true);
     setNextPageIndex(parseInt(nextPageIndex + 1, 10));
+    setScrollToTop(true);
+  };
+
+  const scrollAction = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   if (isNext === true) {
@@ -75,6 +83,14 @@ const SearchPage = () => {
           isNext={isNext}
         />
         )}
+
+        {scrollToTop && (
+        <ArrowUpwardIcon
+          onClick={scrollAction}
+          fontSize="large"
+        />
+        )
+        }
       </div>
 
     </React.Fragment>
